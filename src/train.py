@@ -16,6 +16,7 @@ from loss import LossBinary
 from models import UNet, model_list
 from utils import *
 from validation import validation_binary
+from segmix import FastCollateMixup
 
 warnings.filterwarnings("ignore")
 
@@ -51,7 +52,7 @@ def main():
     arg('--coarsedropout', type=str, default='None', choices=["None", "hole14_w13_h13_p5"])
     arg('--cutmix_collate', type=str, default='default_collate', choices=["default_collate", "FastCollateMixup"])
 
-    arg('--comet_api_key', type=str, default='B5BO9MbSecmPNENABfW6lNWuc', help='comet api key')
+    arg('--comet_api_key', type=str, default='api_key', help='your comet api key')
     arg('--experiment', help='Comet experiment instance')
 
     args = parser.parse_args()
@@ -90,7 +91,7 @@ def main():
     # Create an experiment with your api key
     disable_comet = (args.save_model != 'True')
     print("==> Save experiment to Comet:", (not disable_comet))
-    args.experiment = Experiment(api_key=args.comet_api_key, project_name="miccai_ext_temp", workspace="lofrienger", disabled=disable_comet)
+    args.experiment = Experiment(api_key=args.comet_api_key, project_name="OneToMany_ToolSynSeg", workspace="WS", disabled=disable_comet)
     
     if args.train_dataset == 'Endo18_train':
         args.experiment.set_name(f'train_dataset_{args.train_dataset}-val_dataset_{args.val_dataset}-augmix_{args.augmix}-L{args.augmix_level}')
@@ -240,7 +241,7 @@ def main():
     
     test_image_paths = list((endo18_test_path / 'images').glob('*')) # 999
 
-    # remove 2 images without annotations
+    # remove 2 images which don't have annotations
     bug_images = [Path('/mnt/data-hdd/wa/dataset/EndoVis/2018_RoboticSceneSegmentation/test/images/seq_3_frame249.png'),
                   Path('/mnt/data-hdd/wa/dataset/EndoVis/2018_RoboticSceneSegmentation/test/images/seq_4_frame249.png')]
     for bug_image in bug_images:
@@ -275,7 +276,6 @@ def main():
         if args.augmix != 'None' and mode == 'train': 
             dataset = AugMixData(dataset, preprocess, aug_type = args.augmix, level=args.augmix_level)
 
-        from segmix import FastCollateMixup
         cutmix_args = {
             'mixup_alpha': 0.,
             'cutmix_minmax': (0.3, 0.8),
