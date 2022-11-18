@@ -85,3 +85,14 @@ Part of the codes are adapted from [robot-surgery-segmentation](https://github.c
     author={An Wang and Mobarakol Islam and Mengya Xu and Hongliang Ren},
 }
 ```
+The code structure mainly from our previous code [Single_SurgicalScene_For_Segmentation](https://github.com/lofrienger/Single_SurgicalScene_For_Segmentation) for MICCAI-2022 paper [**Rethinking Surgical Instrument Segmentation: A Background Image Can Be All You Need**](https://arxiv.org/abs/2206.11804).
+```
+@inproceedings{wang2022rethinking,
+  title={Rethinking Surgical Instrument Segmentation: A Background Image Can Be All You Need},
+  author={Wang, An and Islam, Mobarakol and Xu, Mengya and Ren, Hongliang},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={355--364},
+  year={2022},
+  organization={Springer}
+}
+```
