@@ -7,6 +7,8 @@ An Wang*, Mobarakol Islam*, Mengya Xu, and Hongliang Ren**
 
 *: First author; **: Corresponding author
 
+Accepted by [**IROS 2023**](https://ieee-iros.org/).
+
 > This work proposes a highly efficient data-centric framework for surgical instrument synthesis and segmentation. Specifically, for data synthesizing, we only leverage one background tissue image and a few foreground instrument images to construct the source image pools through broad augmentations. One tissue image and two or three instrument images are randomly sampled from the background and foreground image pools. Then we compose them with three blending techniques to form the final synthetic surgical scene image. With the generated synthetic datasets, we incorporate the hybrid usage of advanced training-time augmentations when training the segmentation model. The generalization ability across multiple real test datasets gets steadily improved. Moreover, when adding only 10\% real data, we can achieve much better average segmentation results, indicating the practical significance of our framework in synthetic-real joint training.
 
 ![overall_framework](overall_framework.jpeg)
