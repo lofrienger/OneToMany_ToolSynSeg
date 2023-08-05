@@ -80,9 +80,12 @@ Part of the codes are adapted from [robot-surgery-segmentation](https://github.c
 
 ## Citation
 ```
-@misc{wang2022generalizing,
+@inproceedings{wang2023generalizing,
     title={Generalizing Surgical Instruments Segmentation to Unseen Domains with One-to-Many Synthesis},
     author={An Wang and Mobarakol Islam and Mengya Xu and Hongliang Ren},
+    booktitle={2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+    year={2023},
+    organization={IEEE}
 }
 ```
 The code structure mainly from our previous code [Single_SurgicalScene_For_Segmentation](https://github.com/lofrienger/Single_SurgicalScene_For_Segmentation) for MICCAI-2022 paper [**Rethinking Surgical Instrument Segmentation: A Background Image Can Be All You Need**](https://arxiv.org/abs/2206.11804).
