@@ -25,6 +25,8 @@ We first extensively augment the foreground and background seed images and const
   - [Acknowledgements](#acknowledgements)
   - [Citation](#citation)
 
+***News*** - One colab [demo](demo/colab/demo.ipynb) was added!
+
 ## Environments
 
 * Python=3.8
